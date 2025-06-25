@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Segoe+UI:400,600&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar / Info Window -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>Info Panel</h2>
+        <!-- Theme Toggle Button in Info Panel -->
+        <button id="theme-toggle-btn" title="Toggle Day/Night Mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+      <div class="info-content">
+        <p>Welcome to your dashboard!</p>
+        <ul>
+          <li>Account Status: <span class="status online">Online</span></li>
+          <li>Membership: Premium</li>
+          <li>Last Login: Today</li>
+        </ul>
+        <div class="quick-stats">
+          <div><i class="fas fa-images"></i> Photos: <span id="photo-count">12</span></div>
+          <div><i class="fas fa-bell"></i> Notifications: <span id="notif-count">2</span></div>
+          <div><i class="fas fa-envelope"></i> Messages: <span id="msg-count">3</span></div>
+        </div>
+        <!-- Modern Calendar Widget -->
+        <div id="calendar-widget"></div>
+        <!-- Small Info -->
+        <div class="small-info">
+          <h4>Quote about games</h4>
+          <p>"Gaming is the art of living a thousand lives in one lifetime. Every pixel is a choice, every quest a lesson in persistence. In the world of games, we discover not just new worlds, but new sides of ourselves."</p>
+        </div>
+      </div>
+    </aside>
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <form class="search-bar">
+          <input type="text" placeholder="Search..." id="gallery-search" />
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+        <div class="top-icons">
+          <button class="icon-btn" id="msg-btn" title="Messages"><i class="fas fa-envelope"></i></button>
+          <div class="dropdown" id="msg-dropdown">
+            <div class="dropdown-header">Messages</div>
+            <div class="dropdown-content">
+              <div>No new messages.</div>
+            </div>
+          </div>
+          <button class="icon-btn" id="notif-btn" title="Notifications"><i class="fas fa-bell"></i></button>
+          <div class="dropdown" id="notif-dropdown">
+            <div class="dropdown-header">Notifications</div>
+            <div class="dropdown-content">
+              <div>You have 2 new notifications.</div>
+            </div>
+          </div>
+          <div class="profile-dropdown">
+            <div class="profile-pic" id="profile-pic">
+              <img src="Oyatillo.jpg" alt="Profile" />
+            </div>
+            <div class="dropdown" id="profile-dropdown">
+              <div class="dropdown-header">Hello, Oyatillo!</div>
+              <div class="dropdown-content">
+                <a href="#">Profile</a>
+                <a href="#">Settings</a>
+                <a href="#">Logout</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Quick Greeting & Action -->
+      <div class="greeting-row">
+        <div class="greeting">Good afternoon, Oyatillo!</div>
+        <button class="add-btn" title="Add Photo"><i class="fas fa-plus"></i> Add Photo</button>
+      </div>
+      <!-- Modern Newspaper Info Sheet (now under add photo button) -->
+      <!-- Move the newspaper to the right of the gallery, shrink width, and stretch height -->
+      <section class="gallery-section">
+        <div class="gallery-info-flex">
+          <div class="gallery-masonry" id="gallery" style="margin-left:30px;">
+            <!-- Spider-Man (replaces Zelda) -->
+            <div class="gallery-item" data-title="Spider-Man">
+              <a href="https://www.playstation.com/en-us/games/marvels-spider-man-remastered/" target="_blank">
+                <img class="gallery-img" src="https://cdn.akamai.steamstatic.com/steam/apps/1817070/header.jpg" alt="Spider-Man" loading="lazy">
+              </a>
+              <div class="desc">Spider-Man</div>
+              <div class="game-info">
+                <span class="rating"><i class="fas fa-star"></i> 9.1</span>
+                <span class="genre">Action-Adventure</span>
+                <span class="release">2018</span>
+              </div>
+            </div>
+            <!-- The Witcher 3: Wild Hunt -->
+            <div class="gallery-item" data-title="The Witcher 3: Wild Hunt">
+              <a href="https://thewitcher.com/en/witcher3" target="_blank">
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/292030/header.jpg" alt="The Witcher 3: Wild Hunt">
+              </a>
+              <div class="desc">The Witcher 3: Wild Hunt</div>
+              <div class="game-info">
+                <span class="rating"><i class="fas fa-star"></i> 9.6</span>
+                <span class="genre">RPG</span>
+                <span class="release">2015</span>
+              </div>
+            </div>
+            <!-- Elden Ring -->
+            <div class="gallery-item" data-title="Elden Ring">
+              <a href="https://en.bandainamcoent.eu/elden-ring/elden-ring" target="_blank">
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1245620/header.jpg" alt="Elden Ring">
+              </a>
+              <div class="desc">Elden Ring</div>
+              <div class="game-info">
+                <span class="rating"><i class="fas fa-star"></i> 9.5</span>
+                <span class="genre">Action RPG</span>
+                <span class="release">2022</span>
+              </div>
+            </div>
+            <!-- God of War (2018) -->
+            <div class="gallery-item" data-title="God of War">
+              <a href="https://www.playstation.com/en-us/games/god-of-war/" target="_blank">
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1593500/header.jpg" alt="God of War">
+              </a>
+              <div class="desc">God of War</div>
+              <div class="game-info">
+                <span class="rating"><i class="fas fa-star"></i> 9.4</span>
+                <span class="genre">Action-Adventure</span>
+                <span class="release">2018</span>
+              </div>
+            </div>
+            <!-- Red Dead Redemption 2 -->
+            <div class="gallery-item" data-title="Red Dead Redemption 2">
+              <a href="https://www.rockstargames.com/reddeadredemption2/" target="_blank">
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1174180/header.jpg" alt="Red Dead Redemption 2">
+              </a>
+              <div class="desc">Red Dead Redemption 2</div>
+              <div class="game-info">
+                <span class="rating"><i class="fas fa-star"></i> 9.8</span>
+                <span class="genre">Action-Adventure</span>
+                <span class="release">2018</span>
+              </div>
+            </div>
+            <!-- Grand Theft Auto V -->
+            <div class="gallery-item" data-title="GTA 5">
+              <a href="https://www.rockstargames.com/V/" target="_blank">
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/271590/header.jpg" alt="GTA 5">
+              </a>
+              <div class="desc">GTA 5</div>
+              <div class="game-info">
+                <span class="rating"><i class="fas fa-star"></i> 9.5</span>
+                <span class="genre">Action</span>
+                <span class="release">2013</span>
+              </div>
+            </div>
+            <!-- Assassin's Creed Valhalla -->
+            <div class="gallery-item" data-title="Assassin's Creed Valhalla">
+              <a href="https://www.ubisoft.com/en-us/game/assassins-creed/valhalla" target="_blank">
+                <img src="https://static-cdn.jtvnw.net/ttv-boxart/Assassin%27s%20Creed%20Valhalla.jpg" alt="Assassin's Creed Valhalla">
+              </a>
+              <div class="desc">Assassin's Creed Valhalla</div>
+              <div class="game-info">
+                <span class="rating"><i class="fas fa-star"></i> 8.8</span>
+                <span class="genre">Action RPG</span>
+                <span class="release">2020</span>
+              </div>
+            </div>
+            <!-- Need for Speed Heat -->
+            <div class="gallery-item" data-title="Need for Speed Heat">
+              <a href="https://www.ea.com/games/need-for-speed/need-for-speed-heat" target="_blank">
+                <img src="https://cdn.akamai.steamstatic.com/steam/apps/1222680/header.jpg" alt="Need for Speed Heat">
+              </a>
+              <div class="desc">Need for Speed Heat</div>
+              <div class="game-info">
+                <span class="rating"><i class="fas fa-star"></i> 8.0</span>
+                <span class="genre">Racing</span>
+                <span class="release">2019</span>
+              </div>
+            </div>
+            <!-- Call of Duty -->
+            <div class="gallery-item" data-title="Call of Duty">
+              <a href="https://www.callofduty.com/" target="_blank">
+                <img class="gallery-img" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1938090/header.jpg" alt="Call of Duty" loading="lazy">
+              </a>
+              <div class="desc">Call of Duty</div>
+              <div class="game-info">
+                <span class="rating"><i class="fas fa-star"></i> 8.7</span>
+                <span class="genre">Shooter</span>
+                <span class="release">2022</span>
+              </div>
+              <button class="download-btn">Download</button>
+            </div>
+          </div>
+          <div class="vertical-separator"></div>
+          <div class="game-sheet-text" id="game-sheet-text">
+            <h3>Game World News & Facts</h3>
+            <div class="newspaper-info">
+              <p><b>Spider-Man:</b> Marvel’s Spider-Man lets you swing through a living New York City, featuring a cinematic story and fast-paced combat. The game’s web-swinging mechanics are considered the best ever made for a superhero game.</p>
+              <p><b>The Witcher 3:</b> This RPG is praised for its deep narrative, branching choices, and massive open world. Side quests in The Witcher 3 are often as engaging as the main story, and the game has won over 250 Game of the Year awards.</p>
+              <p><b>Elden Ring:</b> From the creators of Dark Souls, Elden Ring offers a vast, interconnected world with challenging bosses and mysterious lore. Its open-world design encourages exploration and discovery at every turn.</p>
+              <p><b>God of War:</b> God of War (2018) reimagines the franchise with Norse mythology, a touching father-son relationship, and cinematic single-shot camera work. The Leviathan Axe is one of the most satisfying weapons in gaming.</p>
+              <p><b>Red Dead Redemption 2:</b> Rockstar’s western epic is known for its lifelike world, emotional storytelling, and attention to detail. NPCs have daily routines, and your choices affect the world and story outcome.</p>
+              <p><b>GTA 5:</b> Grand Theft Auto V features three playable protagonists and a sprawling city full of activities. Its online mode, GTA Online, is still one of the most popular multiplayer experiences years after release.</p>
+              <p><b>Assassin’s Creed Valhalla:</b> Step into the boots of a Viking raider, build your settlement, and explore England’s kingdoms. The game blends historical fiction with Norse mythology and RPG elements.</p>
+              <p><b>Need for Speed Heat:</b> Race by day in sanctioned events and risk it all by night in illegal street races. Police chases are intense, and car customization is deeper than ever before in the franchise.</p>
+              <p style="margin-top:2em;color:#888;font-size:0.98em;">All these games are critically acclaimed and have set new standards in their genres. Click a picture to visit the official site and learn more!</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Quotes Bar: Place it after gallery, before activity feed -->
+      <div class="quote-bar" id="quote-bar">
+        <span id="quote-text"></span>
+      </div>
+      <!-- Recent Activity Feed -->
+      <section class="activity-feed">
+        <h3>Recent Activity</h3>
+        <ul>
+          <li><i class="fas fa-upload"></i> You uploaded "Desert Dunes" <span class="activity-time">2 hours ago</span></li>
+          <li><i class="fas fa-comment"></i> Anna commented on "City Lights" <span class="activity-time">3 hours ago</span></li>
+          <li><i class="fas fa-heart"></i> You liked "Forest Path" <span class="activity-time">Yesterday</span></li>
+        </ul>
+      </section>
+    </main>
+  </div>
+  <footer>
+    <i class="fab fa-github"></i> 2025. Oyatillo
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
